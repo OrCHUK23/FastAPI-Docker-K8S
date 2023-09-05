@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: books-deployment
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: books
+  template:
+    metadata:
+      labels:
+        app: books
+    spec:
+      containers:
+        - name: books-container
+          image: orchuk/fastapi-containers-k8s-books:latest 
+          ports:
+            - containerPort: 8001 
