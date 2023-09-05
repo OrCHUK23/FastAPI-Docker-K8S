@@ -1,1 +1,0 @@
-ERROR:root:Couldn't fetch the JSON file: [Errno 2] No such file or directory: '/data/store_info.json'
