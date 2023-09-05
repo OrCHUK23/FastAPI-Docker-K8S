@@ -1,0 +1,34 @@
+{
+    "authors": [
+        {
+            "name": "Dan",
+            "description": "Dan's description"
+        },
+        {
+            "name": "Or",
+            "description": "Or's description"
+        }
+    ],
+    "books": [
+        {
+            "title": "The Wind in the Willows",
+            "book details": "Details on The Wind in the Willows",
+            "author": "Dan"
+        },
+        {
+            "title": "Barry Hotter",
+            "book details": "Details on Barry Hotter",
+            "author": "Dan"
+        },
+        {
+            "title": "Spanish for beginners",
+            "book details": "Details on Spanish for beginners",
+            "author": "Or"
+        },
+        {
+            "title": "100 Physics laws",
+            "book details": "Details on 100 Physics laws",
+            "author": "Or"
+        }
+    ]
+}

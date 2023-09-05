@@ -2,11 +2,12 @@ FROM python:3.8
 
 WORKDIR /app
 
-COPY requirements_authors.txt /app/requirements.txt
+COPY requirements.txt /app/requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the FastAPI code for the "authors" service into the image.
+# Copy code and JSON into the image.
 COPY authors.py /app/
+COPY store_info.json /data/
 
 CMD ["uvicorn", "authors:app", "--host", "0.0.0.0", "--port", "8000"]

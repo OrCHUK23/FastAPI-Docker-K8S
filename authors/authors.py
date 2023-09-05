@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO, stream=sys.stdout, filemode="w")
 # Add a line to the log file.
 logging.info("This is a log for 'authors.py' errors")
 
-# Load data from db.json when the application starts
+# Load data from JSON when the application starts.
 try: 
     with open("/data/store_info.json", "r") as json_file:
         store_data = json.load(json_file)
@@ -24,13 +24,13 @@ except FileNotFoundError as e:
 
 
 @app.get("/")
-def root():
+async def root():
     return {"message": "Welcome to the Book Repository!"}
 
 
 # Function handles "/author/name" get request.
 @app.get("/author/{name}")
-def get_author(name: str):
+async def get_author(name: str):
     if store_data is None:
         raise HTTPException(status_code=500, detail="Data not available")
     
@@ -58,6 +58,6 @@ def get_author(name: str):
         return {"message": "Author not found"}, 404
 
 
-# if __name__ == "__main__":
-#     import uvicorn
-#     uvicorn.run(app, host="0.0.0.0", port=8000)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

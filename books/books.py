@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO, stream=sys.stdout, filemode="w")
 # Add a line to the log file.
 logging.info("This is a log for 'books.py' errors")
 
-# Load data from db.json when the application starts
+# Load data from JSON when the application starts.
 try: 
     with open("/data/store_info.json", "r") as json_file:
         store_data = json.load(json_file)
@@ -25,7 +25,7 @@ except FileNotFoundError as e:
 
 # Function handles "/books/name" get request.
 @app.get("/books/{book_name}")
-def get_book(book_name: str):
+async def get_book(book_name: str):
     if store_data is None:
         raise HTTPException(status_code=500, detail="Data not available")
 
