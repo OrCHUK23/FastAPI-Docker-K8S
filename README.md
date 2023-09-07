@@ -30,7 +30,7 @@ Before running the project, ensure you have the following prerequisites:
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 - A Docker Hub account to push your Docker images.
-- A code editor (e.g., VS Code) with Python and Kubernetes extensions (recommended).
+- A code editor (e.g., VS Code) with Python and Kubernetes extensions (optional).
 
 ## Project Structure
 
