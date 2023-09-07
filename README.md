@@ -16,8 +16,7 @@ The project includes the following components:
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Docker Images](#docker-images)
-- [Kubernetes Deployment](#kubernetes-deployment)
-- [Ingress Setup](#ingress-setup)
+- [Kubernetes Deployment & Ingress Setup](#kubernetes-deployment-and-ingress-setup)
 
 ## Project Overview
 
@@ -37,17 +36,18 @@ Before running the project, ensure you have the following prerequisites:
 
 - `authors/`: FastAPI application for the Authors service.
 - `books/`: FastAPI application for the Books service.
-- `store_info.json`: Sample JSON data shared between the services
-- `Dockerfile`: Docker configuration for building the images
-- `requirements.txt`: Python dependencies for each app.
-- - `ingress/`: Kubernetes Ingress setup
+- `store_info.json`: Simple JSON data copied for each service.
+- `Dockerfile`: Docker configuration for building the images.
+- `requirements.txt`: Python dependencies for each service.
+- `ingress/`: Kubernetes Ingress setup.
 
 ## Getting Started
 
 1. Clone the repository to your local machine:
 
-`git clone https://github.com/OrCHUK23/FastAPI-Docker-K8S.git
-   cd FastAPI-Docker-K8S`
+`git clone https://github.com/OrCHUK23/FastAPI-Docker-K8S.git`
+
+`cd FastAPI-Docker-K8S`
 
 2. Build Docker images for the Books and Authors services:
 
@@ -57,13 +57,19 @@ Before running the project, ensure you have the following prerequisites:
 
 3. Create a Minikube cluster:
 
-`minikube start --p my-cluster`
+`minikube start -p my-cluster`
 
-4. Deploy the services to Kubernetes:
+4. Deploy the pods services:
 
 `kubectl apply -f authors_pod.yaml`
 
 `kubectl apply -f books_pod.yaml`
+
+4. Deploy the services to Kubernetes:
+
+`kubectl apply -f authors_service.yaml`
+
+`kubectl apply -f books_service.yaml`
 
 5. Set up the Ingress:
 
@@ -77,12 +83,8 @@ Before running the project, ensure you have the following prerequisites:
 - Use curl or a web browser to interact with the services.
 
 ## Docker Images
-Docker images for the Books and Authors services are available on Docker Hub:
+Docker images for the Books and Authors services are available in my [DockerHub repositories](https://hub.docker.com/repositories/orchuk):
 
-## Books Service Image
-Authors Service Image
-Kubernetes Deployment
-The Kubernetes deployment files are located in the deployment/ directory. You can adjust the number of replicas, resource limits, and other settings in these files.
-
-## Ingress Setup
-The Kubernetes Ingress setup is located in the root directory. The Ingress configuration exposes the services as a unified API under a single hostname.
+## Kubernetes Deployment and Ingress setup
+The Kubernetes deployment and Ingress setup files are located in the main directory. You can adjust the number of replicas, resource limits, and other settings in these files.
+The Ingress configuration exposes the services as a unified API under a single hostname.
